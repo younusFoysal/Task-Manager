@@ -5,11 +5,19 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import "./index.css";
+import Layout from "./Pages/Layout.jsx";
+import Home from "./Pages/Home.jsx";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <div>Hello world!</div>,
+        element: <Layout/>,
+        children: [
+            {
+                path: '/',
+                element: <Home/>
+            }
+        ]
     },
 ]);
 
