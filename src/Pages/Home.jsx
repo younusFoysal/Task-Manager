@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { motion } from 'framer-motion';
+import toast, {Toaster} from "react-hot-toast";
 
 const Home = () => {
 
@@ -29,12 +30,14 @@ const Home = () => {
                 ...tasks,
                 { title: newTask, id: Date.now(), completed: false, priority: 'Low' }
             ]);
+            toast.success('Task added successfully!');
             setNewTask('');
         }
     };
 
     const handleDeleteTask = (id) => {
         setTasks(tasks.filter(task => task.id !== id));
+        toast.success('Task deleted successfully!');
     };
 
     const handleToggleComplete = (id) => {
@@ -72,11 +75,12 @@ const Home = () => {
                 <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-36">
                     <div className="px-4 py-2 text-center">
                         <h1 className="text-xl leading-[52px] font-semibold md:text-4xl lg:text-3xl">
-                            <span className="underline decoration-indigo-600 underline-offset-4">Easily Manage Your</span>
+                            <span className="">Easily Manage Your</span>
 
                             <span className="bg-indigo-600 text-white p-0.5 rounded-lg ml-2">Tasks</span>
                         </h1>
                     </div>
+                    <Toaster />
 
 
                     {/* Task Input */}
