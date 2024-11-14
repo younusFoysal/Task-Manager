@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import { motion } from 'framer-motion';
 import toast, {Toaster} from "react-hot-toast";
 
@@ -9,7 +9,7 @@ const Home = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [sortCriteria, setSortCriteria] = useState('title');
 
-    // Load tasks from local storage on component mount
+
     useEffect(() => {
         const savedTasks = JSON.parse(localStorage.getItem('tasks'));
         if (savedTasks && savedTasks.length > 0) {
@@ -17,7 +17,7 @@ const Home = () => {
         }
     }, []);
 
-    // Save tasks to local storage whenever they change
+
     useEffect(() => {
         if (tasks.length > 0) {
             localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -75,15 +75,15 @@ const Home = () => {
                 <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-36">
                     <div className="px-4 py-2 text-center">
                         <h1 className="text-xl leading-[52px] font-semibold md:text-4xl lg:text-3xl">
-                            <span className="">Easily Manage Your</span>
+                            <span className="">Easily Manage</span>
 
-                            <span className="bg-indigo-600 text-white p-0.5 rounded-lg ml-2">Tasks</span>
+                            <span className="bg-indigo-600 text-white p-0.5 rounded-lg ml-2">Your Tasks</span>
                         </h1>
                     </div>
                     <Toaster />
 
 
-                    {/* Task Input */}
+
                     <div className="w-full max-w-2xl mx-auto px-4 py-2 mb-4">
                         <div className="flex items-center border-b-2 border-indigo-500 py-2">
                             <input
@@ -102,7 +102,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* Sorting Options */}
+
 
                     <div className="flex gap-3 items-center justify-center mb-4">
 
@@ -136,7 +136,7 @@ const Home = () => {
                     </div>
 
 
-                    {/* Task List */}
+
                     <ul className="divide-y divide-gray-200 px-4">
                         {sortedTasks.map(task => (
                             <motion.li
